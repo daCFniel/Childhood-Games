@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0032)http://grydziecinstwa.rf.gd/?i=2 -->
-<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="pl">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title> Gry dzieciństwa </title>
 	
 	<meta name="description" content="Strona zrobiona dla funu poświęcona wszelakim grom z mojego dzieciństwa">
@@ -10,15 +11,47 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 	
-<style>
-p::before {
-    content: "-> ";
-}
-</style></head>
+	<style>
+	p::before {
+	    content: "-> ";
+	}
+	</style>
+</head>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+<script>
+
+//	sticky navigation bar
+$(document).ready(function(){
+		var navY = $('.nav').offset().top;
+
+		var stickyNav = function(){
+			var scrollY = $(window).scrollTop();
+
+			if(scrollY > navY)
+			{
+				$('.nav').addClass('sticky');
+				$('.content').css('padding-top', '70px');
+			}
+			else
+			{
+				$('.nav').removeClass('sticky');
+				$('.content').css('padding-top', '10px');
+			}
+		};
+
+		stickyNav();
+
+		$(window).scroll(function(){
+			stickyNav();
+		});
+	});
+
+</script>	
 
 
-
-<body data-new-gr-c-s-check-loaded="14.995.0" data-gr-ext-installed="">
+<body>
 	<div id="container">
 	<!--=========================================================-->
 		<div class="header">
@@ -99,38 +132,5 @@ p::before {
 		<!--=========================================================-->
 	</div>
 	
-	<script src="script/jquery-3.3.1.min.js.pobrane"></script>
-	
-	<script>
-	
-	//	sticky navigation bar
-	$(document).ready(function(){
-			var navY = $('.nav').offset().top;
-			
-			var stickyNav = function(){
-				var scrollY = $(window).scrollTop();
-				
-				if(scrollY > navY)
-				{
-					$('.nav').addClass('sticky');
-					$('.content').css('padding-top', '70px');
-				}
-				else
-				{
-					$('.nav').removeClass('sticky');
-					$('.content').css('padding-top', '10px');
-				}
-			};
-			
-			stickyNav();
-			
-			$(window).scroll(function(){
-				stickyNav();
-			});
-		});
-	
-	</script>
-
-
 </body>
 </html>
